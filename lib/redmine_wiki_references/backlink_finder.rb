@@ -1,4 +1,4 @@
-module RedmineWikiBacklinks
+module RedmineWikiReferences
   class BacklinkFinder
     class << self
       def referencing_pages(issue, user = User.current)

@@ -1,9 +1,9 @@
-<% backlinked_pages = RedmineWikiBacklinks::BacklinkFinder.referencing_pages(issue, User.current) %>
+<% backlinked_pages = RedmineWikiReferences::BacklinkFinder.referencing_pages(issue, User.current) %>
 
 <% if backlinked_pages.any? %>
-  <div id="wiki-backlinks" class="wiki-backlinks">
+  <div id="wiki-references" class="wiki-references">
     <hr>
-    <p><strong><%= l(:label_wiki_backlinks) %></strong></p>
+    <p><strong><%= l(:label_wiki_references) %></strong></p>
     <ul>
       <% backlinked_pages.each do |page| %>
         <li>

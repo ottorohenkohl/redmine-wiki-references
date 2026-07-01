@@ -1,4 +1,4 @@
-# Wiki Backlinks
+# Wiki References
 
 Ein Redmine-Plugin, das am Ende jeder Ticket-Seite die Wiki-Seiten anzeigt, die das Ticket über einen `#<id>`-Link referenzieren.
 Die Referenzen werden in einer gepflegten Index-Tabelle materialisiert, die bei jedem Speichern von Wiki-Inhalt aktualisiert wird — die Anzeige kostet damit nur einen indizierten Lookup, unabhängig von der Größe des Wikis.
@@ -21,7 +21,7 @@ Das Plugin wurde für Redmine (Version >= 6.0.0) entwickelt. Es verwendet Migrat
 ## Installation
 
 1. In dein Redmine-Verzeichnis wechseln.
-2. Das Plugin-Verzeichnis nach `plugins/redmine_wiki_backlinks/` kopieren und nach Bedarf umbenennen.
+2. Das Plugin-Verzeichnis nach `plugins/redmine_wiki_references/` kopieren und nach Bedarf umbenennen.
 3. Migration mit `rake redmine:plugins:migrate RAILS_ENV=production` ausführen (legt die Tabelle an und befüllt sie aus dem vorhandenen Wiki-Inhalt).
 4. Redmine neu starten.
 
@@ -42,4 +42,4 @@ Das Plugin wurde für Redmine (Version >= 6.0.0) entwickelt. Es verwendet Migrat
   - Spalten: `wiki_page_id`, `issue_id` (Integer)
   - Indizes: eindeutiger Index auf `(wiki_page_id, issue_id)`, zusätzlicher Index auf `issue_id`
 - Migration: `db/migrate/001_create_wiki_page_issue_references.rb`
-  - legt die Tabelle an und führt das Backfill über `RedmineWikiBacklinks::Indexer.reindex_all` aus
+  - legt die Tabelle an und führt das Backfill über `RedmineWikiReferences::Indexer.reindex_all` aus

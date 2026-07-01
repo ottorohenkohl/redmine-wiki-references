@@ -1,4 +1,4 @@
-module RedmineWikiBacklinks
+module RedmineWikiReferences
   module ReferenceExtractor
     module_function
 

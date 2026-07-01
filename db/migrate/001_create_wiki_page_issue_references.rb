@@ -10,9 +10,9 @@ class CreateWikiPageIssueReferences < ActiveRecord::Migration[6.1]
       add_index :wiki_page_issue_references, :issue_id, name: :wiki_page_issue_refs_issue_id
     end
 
-    if defined?(RedmineWikiBacklinks::Indexer)
+    if defined?(RedmineWikiReferences::Indexer)
       WikiPageIssueReference.reset_column_information
-      RedmineWikiBacklinks::Indexer.reindex_all
+      RedmineWikiReferences::Indexer.reindex_all
     end
   end
 
