@@ -1,2 +1,4 @@
 de:
   label_wiki_references: "Referenziert von Wikiseiten"
+  label_wiki_reference_table_wiki_description: "Referenziert in der Wiki-Seite"
+  label_wiki_reference_table_project_description: "Aus dem Projekt"
