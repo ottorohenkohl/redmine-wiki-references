@@ -10,7 +10,7 @@ module RedmineWikiReferences
 
       WikiPageIssueReference.transaction do
         WikiPageIssueReference.where(wiki_page_id: content.page_id).delete_all
-        WikiPageIssueReference.insert_all(ids.map { |iid| { wiki_page_id: page_id, issue_id: iid } })
+        WikiPageIssueReference.insert_all(ids.map { |iid| { wiki_page_id: content.page_id, issue_id: iid } })
       end
     rescue ActiveRecord::RecordNotUnique
       return
@@ -29,7 +29,7 @@ module RedmineWikiReferences
 
         next if ids.empty?
 
-        WikiPageIssueReference.insert_all(ids.map { |iid| { wiki_page_id: page_id, issue_id: iid } })
+        WikiPageIssueReference.insert_all(ids.map { |iid| { wiki_page_id: content.page_id, issue_id: iid } })
       end
     end
   end
