@@ -6,15 +6,20 @@
     <p><strong><%= l(:label_wiki_references) %></strong></p>
     <table class="list issues odd-even">
       <tbody>
-        <% backlinked_pages.each do |page| %>
-          <tr>
-            <td class="subject">
-              <%= l(:label_wiki_reference_table_wiki_description) %> <%= link_to page.pretty_title, project_wiki_page_path(page.project, page.title) %>
-            </td>
-            <td class="subject">
-              <%= l(:label_wiki_reference_table_project_description) %> <%= link_to page.project.name, project_path(page.project) %>
+        <% backlinked_pages.group_by(&:project).each do |project, pages| %>
+          <tr class="group open">
+            <td>
+              <span class="name"><%= l(:label_wiki_reference_table_project_description) %> <%= link_to project.name, project_path(project) %></span>
+              <span class="badge badge-count count"><%= pages.count %></span>
             </td>
           </tr>
+          <% pages.each do |page| %>
+            <tr>
+              <td class="subject">
+                <%= l(:label_wiki_reference_table_wiki_description) %> <%= link_to page.pretty_title, project_wiki_page_path(page.project, page.title) %>
+              </td>
+            </tr>
+          <% end %>
         <% end %>
       </tbody>
     </table>
