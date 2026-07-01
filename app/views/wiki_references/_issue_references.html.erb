@@ -8,10 +8,9 @@
       <% backlinked_pages.group_by(&:project).each do |project, pages| %>
         <thead>
           <tr class="group open">
-            <td>
-              <span class="name"><%= l(:label_wiki_reference_table_project_description) %> <%= link_to project.name, project_path(project) %></span>
-              <span class="badge badge-count count"><%= pages.count %></span>
-            </td>
+            <th>
+              <%= l(:label_wiki_reference_table_project_description) %> <%= link_to project.name, project_path(project) %>
+            </th>
           </tr>
         </thead>
         <tbody>
