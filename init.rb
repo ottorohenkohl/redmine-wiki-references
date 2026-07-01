@@ -11,7 +11,7 @@ end
 
 unless defined?(WikiReferencesViewHook)
   class WikiReferencesViewHook < Redmine::Hook::ViewListener
-    render_on :view_issues_show_details_bottom, partial: 'wiki_references/issue_references'
+    render_on :view_issues_show_description_bottom, partial: 'wiki_references/issue_references'
   end
 end
 
