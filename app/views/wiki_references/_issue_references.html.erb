@@ -5,14 +5,16 @@
   <div id="wiki-references">
     <p><strong><%= l(:label_wiki_references) %></strong></p>
     <table class="list issues odd-even">
-      <tbody>
-        <% backlinked_pages.group_by(&:project).each do |project, pages| %>
+      <% backlinked_pages.group_by(&:project).each do |project, pages| %>
+        <thead>
           <tr class="group open">
             <td>
               <span class="name"><%= l(:label_wiki_reference_table_project_description) %> <%= link_to project.name, project_path(project) %></span>
               <span class="badge badge-count count"><%= pages.count %></span>
             </td>
           </tr>
+        </thead>
+        <tbody>
           <% pages.each do |page| %>
             <tr>
               <td class="subject">
@@ -20,8 +22,8 @@
               </td>
             </tr>
           <% end %>
-        <% end %>
-      </tbody>
+        </tbody>
+      <% end %>
     </table>
   </div>
 <% end %>
